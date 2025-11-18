@@ -2,14 +2,36 @@ const ApplicationModel = require('../models/ApplicationModel');
 
 module.exports = {
   async getAll(req, res) {
-    const apps = await ApplicationModel.getAll();
-    return res.json(apps);
+    try {
+      const applications = await ApplicationModel.getAll();
+      return res.json(applications);
+    } catch (err) {
+      return res.status(500).json({ error: 'Erro ao buscar candidaturas.' });
+    }
   },
 
   async getById(req, res) {
-    const app = await ApplicationModel.getById(req.params.id);
-    if (!app) return res.status(404).json({ error: 'Application not found' });
-    return res.json(app);
+    const application = await ApplicationModel.getById(req.params.id);
+    if (!application) {
+      return res.status(404).json({ error: 'Candidatura não encontrada' });
+    }
+    return res.json(application);
+  },
+
+  async getByJobId(req, res) {
+    const jobId = req.params.jobId;
+
+    try {
+      const applications = await ApplicationModel.getByJobId(jobId);
+
+      if (applications.length === 0) {
+        return res.status(404).json({ error: 'Nenhuma candidatura encontrada para esta vaga.' });
+      }
+
+      return res.json(applications);
+    } catch (err) {
+      return res.status(500).json({ error: err.message });
+    }
   },
 
   async create(req, res) {

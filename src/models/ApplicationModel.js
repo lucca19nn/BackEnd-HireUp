@@ -38,5 +38,18 @@ module.exports = {
   async delete(id) {
     const result = await pool.query('DELETE FROM applications WHERE id = $1 RETURNING id', [id]);
     return result.rows[0];
-  }
+  },
+
+  async getByJobId(jobId) {
+    const query = `
+        SELECT a.id, a.status, 
+               c.id as candidate_id, c.name as candidate_name, c.email as candidate_email
+        FROM applications a 
+        JOIN candidates c ON a.candidate_id = c.id
+        WHERE a.job_id = $1
+        ORDER BY a.id DESC`;
+    
+    const result = await pool.query(query, [jobId]);
+    return result.rows;
+}
 };

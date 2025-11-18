@@ -40,5 +40,15 @@ module.exports = {
   async delete(id) {
     const result = await pool.query('DELETE FROM jobs WHERE id = $1 RETURNING id', [id]);
     return result.rows[0];
+  },
+
+  async deleteInactive() {
+    const query = `
+      DELETE FROM jobs 
+      WHERE status IN ('CLOSED', 'FILLED', 'CANCELLED') 
+      RETURNING id
+    `;
+    const result = await pool.query(query);
+    return result.rowCount; 
   }
 };

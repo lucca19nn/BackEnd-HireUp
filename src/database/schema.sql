@@ -8,8 +8,7 @@ CREATE TABLE users (
     password VARCHAR(255) NOT NULL,
     role VARCHAR(50) DEFAULT 'recruiter',
     avatar_url VARCHAR(255),
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-);
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP 
 
 CREATE TABLE jobs (
     id SERIAL PRIMARY KEY,
@@ -18,7 +17,7 @@ CREATE TABLE jobs (
     salary NUMERIC(10, 2),
     status VARCHAR(50) DEFAULT 'OPEN',
     recruiter_id INTEGER NOT NULL,
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP, 
     FOREIGN KEY (recruiter_id) REFERENCES users(id) ON DELETE CASCADE
 );
 
@@ -29,7 +28,7 @@ CREATE TABLE candidates (
     phone VARCHAR(20),
     linkedin_url VARCHAR(255),
     avatar_url VARCHAR(255),
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP 
 );
 
 CREATE TABLE applications (
@@ -37,7 +36,8 @@ CREATE TABLE applications (
     job_id INTEGER NOT NULL,
     candidate_id INTEGER NOT NULL,
     status VARCHAR(50) DEFAULT 'APPLIED', 
-    FOREIGN KEY (job_id) REFERENCES jobs(id),
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (job_id) REFERENCES jobs(id) ON DELETE CASCADE,
     FOREIGN KEY (candidate_id) REFERENCES candidates(id),
     UNIQUE(job_id, candidate_id) 
 );
@@ -82,4 +82,4 @@ INSERT INTO applications (job_id, candidate_id, status) VALUES
 (1, 4, 'APPLIED'),     
 (2, 2, 'HIRED'),       
 (3, 1, 'REJECTED'),    
-(4, 3, 'APPLIED');
+(4, 3, 'APPLIED');  

@@ -12,11 +12,12 @@ module.exports = {
   },
 
   async create(candidate) {
-    const { name, email, phone, linkedin_url, avatar_url } = candidate;
+    const { name, email, phone, linkedin_url, avatar_url, password } = candidate;
     const result = await pool.query(
-      `INSERT INTO candidates (name, email, phone, linkedin_url, avatar_url) 
-       VALUES ($1, $2, $3, $4, $5) RETURNING *`,
-      [name, email, phone, linkedin_url, avatar_url]
+      `INSERT INTO candidates (name, email, phone, linkedin_url, avatar_url, password) 
+       VALUES ($1, $2, $3, $4, $5, $6) 
+       RETURNING id, name, email, created_at`, 
+      [name, email, phone, linkedin_url, avatar_url, password]
     );
     return result.rows[0];
   },

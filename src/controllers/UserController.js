@@ -2,7 +2,8 @@ const UserModel = require('../models/UserModel');
 
 module.exports = {
   async getAll(req, res) {
-    const users = await UserModel.getAll();
+    const { role } = req.query;
+    const users = await UserModel.getAll(role);
     return res.json(users);
   },
 

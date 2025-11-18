@@ -1,4 +1,5 @@
 const CandidateModel = require('../models/CandidateModel');
+const bcrypt = require('bcryptjs');
 
 module.exports = {
   async getAll(req, res) {
@@ -14,7 +15,23 @@ module.exports = {
 
   async create(req, res) {
     try {
-      const candidate = await CandidateModel.create(req.body);
+      const { name, email, phone, linkedin_url, avatar_url, password } = req.body;
+
+      if (!password) {
+        return res.status(400).json({ error: 'Password is required' });
+      }
+
+      const passwordHash = await bcrypt.hash(password, 10);
+
+      const candidate = await CandidateModel.create({
+        name, 
+        email, 
+        phone, 
+        linkedin_url, 
+        avatar_url, 
+        password: passwordHash 
+      });
+
       return res.status(201).json(candidate);
     } catch (err) {
       return res.status(400).json({ error: err.message });

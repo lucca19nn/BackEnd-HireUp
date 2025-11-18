@@ -31,5 +31,14 @@ module.exports = {
     const job = await JobModel.delete(req.params.id);
     if (!job) return res.status(404).json({ error: 'Job not found' });
     return res.status(204).send();
+  },
+
+  async removeInactive(req, res) {
+    try {
+      const count = await JobModel.deleteInactive();
+      return res.status(200).json({ message: `Limpeza concluída. ${count} vagas antigas foram removidas.` });
+    } catch (err) {
+      return res.status(500).json({ error: err.message });
+    }
   }
 };

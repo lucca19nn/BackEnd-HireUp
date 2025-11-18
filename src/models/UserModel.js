@@ -1,14 +1,19 @@
 const pool = require('../config/database');
 
 module.exports = {
-  async getAll() {
-    const result = await pool.query('SELECT id, name, email, role, avatar_url, created_at FROM users ORDER BY id ASC');
-    return result.rows;
-  },
+  async getAll(roleFilter) {
+    let query = 'SELECT id, name, email, role, avatar_url, created_at FROM users';
+    let values = [];
 
-  async getById(id) {
-    const result = await pool.query('SELECT id, name, email, role, avatar_url, created_at FROM users WHERE id = $1', [id]);
-    return result.rows[0];
+    if (roleFilter) {
+        query += ' WHERE role = $1';
+        values.push(roleFilter);
+    }
+    query += ' ORDER BY id ASC';
+
+    const result = await pool.query(query, values);
+
+    return result.rows;
   },
 
   async create(user) {
