@@ -1,13 +1,53 @@
 const pool = require('../config/database');
 
 module.exports = {
-  async getAll() {
+  async getAll(title, company, city, type) {
+    if (title) {
+      const query = `
+        SELECT j.*, u.name as recruiter_name, u.avatar_url as recruiter_avatar  
+        FROM jobs j JOIN users u ON j.recruiter_id = u.id
+        WHERE j.title ILIKE $1
+        ORDER BY j.created_at DESC`;
+      const result = await pool.query(query, [`%${title}%`]);
+      return result.rows;
+    }
+    if (company) {
+      const query = `
+        SELECT j.*, u.name as recruiter_name, u.avatar_url as recruiter_avatar
+        FROM jobs j JOIN users u ON j.recruiter_id = u.id
+        WHERE j.company ILIKE $1
+        ORDER BY j.created_at DESC`;
+      const result = await pool.query(query, [`%${company}%`]);
+      return result.rows;
+    }
+
+    if (city) {
+      const query = `
+        SELECT j.*, u.name as recruiter_name, u.avatar_url as recruiter_avatar
+        FROM jobs j JOIN users u ON j.recruiter_id = u.id
+        WHERE j.city ILIKE $1
+        ORDER BY j.created_at DESC`;
+      const result = await pool.query(query, [`%${city}%`]);
+      return result.rows;
+    }
+    if (type) {
+      const query = `
+        SELECT j.*, u.name as recruiter_name, u.avatar_url as recruiter_avatar  
+        FROM jobs j JOIN users u ON j.recruiter_id = u.id
+        WHERE j.type ILIKE $1
+        ORDER BY j.created_at DESC`;
+      const result = await pool.query(query, [`%${type}%`]);
+      return result.rows;
+    }
+    
     const query = `
       SELECT j.*, u.name as recruiter_name, u.avatar_url as recruiter_avatar 
       FROM jobs j JOIN users u ON j.recruiter_id = u.id ORDER BY j.created_at DESC`;
     const result = await pool.query(query);
     return result.rows;
   },
+
+  
 
   async getById(id) {
     const query = `
@@ -28,7 +68,7 @@ module.exports = {
   },
 
   async update(id, job) {
-    const { title, description, salary, status } = job;
+    const { title, description, company, city, type,salary, status } = job;
     const result = await pool.query(
       `UPDATE jobs SET title = $1, description = $2, salary = $3, status = $4 
        WHERE id = $5 RETURNING *`,

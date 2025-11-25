@@ -8,12 +8,16 @@ CREATE TABLE users (
     password VARCHAR(255) NOT NULL,
     role VARCHAR(50) DEFAULT 'recruiter',
     avatar_url VARCHAR(255),
-    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP 
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP )
+;
 
 CREATE TABLE jobs (
     id SERIAL PRIMARY KEY,
     title VARCHAR(255) NOT NULL,
     description TEXT NOT NULL,
+    company VARCHAR(255),
+    city VARCHAR(255),
+    type VARCHAR(50),
     salary NUMERIC(10, 2),
     status VARCHAR(50) DEFAULT 'OPEN',
     recruiter_id INTEGER NOT NULL,
@@ -65,11 +69,11 @@ INSERT INTO users (name, email, password, role, avatar_url) VALUES
     'https://i.pravatar.cc/150?u=carla'
 );
 
-INSERT INTO jobs (title, description, salary, status, recruiter_id) VALUES 
-('Desenvolvedor Backend Senior', 'Experiência com Node.js, PostgreSQL e Docker.', 12000.00, 'OPEN', 1),
-('Designer UX/UI', 'Figma, prototipação e pesquisa com usuários.', 8500.50, 'OPEN', 1),
-('Tech Lead', 'Liderança técnica de equipe ágil.', 18000.00, 'interviewing', 2),
-('Estagiário de QA', 'Testes manuais e automação básica.', 2500.00, 'CLOSED', 3);
+INSERT INTO jobs (title, description, company, city, type, salary, status, recruiter_id) VALUES 
+('Desenvolvedor Backend Senior', 'Experiência com Node.js, PostgreSQL e Docker.', 'High Tech', 'São Paulo', 'CLT', 12000.00, 'OPEN', 1),
+('Designer UX/UI', 'Figma, prototipação e pesquisa com usuários.', 'Nubank', 'Rio de Janeiro', 'PJ', 8500.50, 'OPEN', 1),
+('Tech Lead', 'Liderança técnica de equipe ágil.', 'Banco do Bradesco', 'Belo Horizonte', 'CLT', 18000.00, 'INTERVIEWING', 2),
+('Estagiário de QA', 'Testes manuais e automação básica.', 'Arcell Mital', 'Curitiba', 'Estágio', 2500.00, 'CLOSED', 3);
 
 INSERT INTO candidates (name, email, phone, linkedin_url, avatar_url) VALUES 
 ('Lucas Oliveira', 'lucas.dev@email.com', '11999991111', 'linkedin.com/in/lucasdev', 'https://i.pravatar.cc/150?u=lucasdev'),

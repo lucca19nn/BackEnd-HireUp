@@ -2,8 +2,14 @@ const JobModel = require('../models/JobModel');
 
 module.exports = {
   async getAll(req, res) {
-    const jobs = await JobModel.getAll();
-    return res.json(jobs);
+    try {
+      const { title, company, city, type } = req.query;
+      const jobs = await JobModel.getAll(title, company, city, type);
+      return res.json(jobs);
+    } catch (err) {
+      return res.status(500).json({ error: err.message });
+    }
+    
   },
 
   async getById(req, res) {
