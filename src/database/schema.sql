@@ -33,6 +33,7 @@ CREATE TABLE candidates (
     phone VARCHAR(20),
     linkedin_url VARCHAR(255),
     avatar_url VARCHAR(255),
+    password VARCHAR(255) NOT NULL,
     created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP 
 );
 
@@ -43,7 +44,7 @@ CREATE TABLE candidates (
         status VARCHAR(50) DEFAULT 'APPLIED', 
         created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
         FOREIGN KEY (job_id) REFERENCES jobs(id) ON DELETE CASCADE,
-        FOREIGN KEY (candidate_id) REFERENCES candidates(id),
+        FOREIGN KEY (candidate_id) REFERENCES candidates(id) ON DELETE CASCADE,
         UNIQUE(job_id, candidate_id) 
     );
 
