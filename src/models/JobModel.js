@@ -51,28 +51,119 @@ module.exports = {
 
   async getById(id) {
     const query = `
-      SELECT j.*, u.name as recruiter_name 
-      FROM jobs j JOIN users u ON j.recruiter_id = u.id WHERE j.id = $1`;
+      SELECT 
+        j.*, 
+        u.name as recruiter_name,
+        u.avatar_url as recruiter_avatar
+      FROM jobs j 
+      JOIN users u ON j.recruiter_id = u.id 
+      WHERE j.id = $1`;
     const result = await pool.query(query, [id]);
     return result.rows[0];
   },
 
   async create(job) {
-    const { title, description, company, city, type, salary, status, recruiter_id } = job;
+    const {  title,
+      description,
+      company,
+      city,
+      type,
+      salary,
+      status,
+      recruiter_id,
+      salary_description,
+      summary,
+      responsibilities,
+      requirements,
+      company_mission,
+      company_vision,
+      company_values,
+      address } = job;
     const result = await pool.query(
-      `INSERT INTO jobs (title, description, company, city, type, salary, status, recruiter_id) 
-       VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING *`,
-      [title, description, company, city, type, salary, status, recruiter_id]
+      ` INSERT INTO jobs (
+        title, description, company, city, type, salary, status, recruiter_id,
+        salary_description, summary, responsibilities, requirements,
+        company_mission, company_vision, company_values, address
+      )
+      VALUES (
+        $1, $2, $3, $4, $5, $6, $7, $8,
+        $9, $10, $11, $12,
+        $13, $14, $15, $16
+      )
+      RETURNING *
+    `,
+      [  title,
+        description,
+        company,
+        city,
+        type,
+        salary,
+        status,
+        recruiter_id,
+        salary_description,
+        summary,
+        responsibilities,
+        requirements,
+        company_mission,
+        company_vision,
+        company_values,
+        address]
     );
     return result.rows[0];
   },
 
   async update(id, job) {
-    const { title, description, company, city, type, salary, status } = job;
+    const {title,
+      description,
+      company,
+      city,
+      type,
+      salary,
+      status,
+      salary_description,
+      summary,
+      responsibilities,
+      requirements,
+      company_mission,
+      company_vision,
+      company_values,
+      address} = job;
     const result = await pool.query(
-      `UPDATE jobs SET title = $1, description = $2, company = $3, city = $4, type = $5, salary = $6, status = $7 
-       WHERE id = $8 RETURNING *`,
-      [title, description, company, city, type, salary, status, id]
+      `  UPDATE jobs SET
+        title = $1,
+        description = $2,
+        company = $3,
+        city = $4,
+        type = $5,
+        salary = $6,
+        status = $7,
+        salary_description = $8,
+        summary = $9,
+        responsibilities = $10,
+        requirements = $11,
+        company_mission = $12,
+        company_vision = $13,
+        company_values = $14,
+        address = $15
+      WHERE id = $16
+      RETURNING *
+    `,
+      [ title,
+        description,
+        company,
+        city,
+        type,
+        salary,
+        status,
+        salary_description,
+        summary,
+        responsibilities,
+        requirements,
+        company_mission,
+        company_vision,
+        company_values,
+        address,
+        id]
     );
     return result.rows[0];
   },
