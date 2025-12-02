@@ -8,6 +8,9 @@ module.exports = {
   },
 
   async getById(req, res) {
+
+    console.log("Chegou GET /usuarios/:id →", req.params.id);
+
     const { id } = req.params;
     const user = await UserModel.getById(id);
     if (!user) return res.status(404).json({ error: 'User not found' });
@@ -20,6 +23,7 @@ module.exports = {
       return res.status(201).json(user);
     } catch (err) {
       return res.status(400).json({ error: err.message });
+      
     }
   },
 

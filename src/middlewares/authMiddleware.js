@@ -4,11 +4,17 @@ const JWT_SECRET = process.env.JWT_SECRET;
 
 const protect = (req, res, next) => {
   let token;
+
+  console.log("Headers recebidos:", req.headers);  // <---- AQUI
+  console.log("Authorization recebido:", req.headers.authorization); // <---- AQUI
+
   if (req.headers.authorization && req.headers.authorization.startsWith('Bearer')) {
     try {
       token = req.headers.authorization.split(' ')[1];
 
       const decoded = jwt.verify(token, JWT_SECRET);
+
+      console.log("TOKEN DECODIFICADO:", decoded);  // <---- E AQUI
 
       req.user = { 
           id: decoded.userId,
