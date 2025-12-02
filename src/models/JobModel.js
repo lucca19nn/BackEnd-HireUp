@@ -58,21 +58,21 @@ module.exports = {
   },
 
   async create(job) {
-    const { title, description, salary, status, recruiter_id } = job;
+    const { title, description, company, city, type, salary, status, recruiter_id } = job;
     const result = await pool.query(
-      `INSERT INTO jobs (title, description, salary, status, recruiter_id) 
-       VALUES ($1, $2, $3, $4, $5) RETURNING *`,
-      [title, description, salary, status || 'OPEN', recruiter_id]
+      `INSERT INTO jobs (title, description, company, city, type, salary, status, recruiter_id) 
+       VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING *`,
+      [title, description, company, city, type, salary, status, recruiter_id]
     );
     return result.rows[0];
   },
 
   async update(id, job) {
-    const { title, description, company, city, type,salary, status } = job;
+    const { title, description, company, city, type, salary, status } = job;
     const result = await pool.query(
-      `UPDATE jobs SET title = $1, description = $2, salary = $3, status = $4 
-       WHERE id = $5 RETURNING *`,
-      [title, description, salary, status, id]
+      `UPDATE jobs SET title = $1, description = $2, company = $3, city = $4, type = $5, salary = $6, status = $7 
+       WHERE id = $8 RETURNING *`,
+      [title, description, company, city, type, salary, status, id]
     );
     return result.rows[0];
   },
