@@ -78,17 +78,22 @@ module.exports = {
       company_mission,
       company_vision,
       company_values,
-      address } = job;
+      address,
+      company_description,
+      company_overview
+    } = job;
     const result = await pool.query(
       ` INSERT INTO jobs (
         title, description, company, city, type, salary, status, recruiter_id,
         salary_description, summary, responsibilities, requirements,
-        company_mission, company_vision, company_values, address
+        company_mission, company_vision, company_values, address,
+        company_description, company_overview
       )
       VALUES (
         $1, $2, $3, $4, $5, $6, $7, $8,
         $9, $10, $11, $12,
-        $13, $14, $15, $16
+        $13, $14, $15, $16,
+        $17, $18
       )
       RETURNING *
     `,
@@ -107,7 +112,10 @@ module.exports = {
         company_mission,
         company_vision,
         company_values,
-        address]
+        address,
+        company_description,
+        company_overview
+      ]
     );
     return result.rows[0];
   },
@@ -127,7 +135,10 @@ module.exports = {
       company_mission,
       company_vision,
       company_values,
-      address} = job;
+      address,
+      company_description,
+      company_overview
+    } = job;
     const result = await pool.query(
       `  UPDATE jobs SET
         title = $1,
@@ -144,8 +155,10 @@ module.exports = {
         company_mission = $12,
         company_vision = $13,
         company_values = $14,
-        address = $15
-      WHERE id = $16
+        address = $15,
+        company_description = $16,
+        company_overview = $17
+      WHERE id = $18
       RETURNING *
     `,
       [ title,
@@ -163,6 +176,8 @@ module.exports = {
         company_vision,
         company_values,
         address,
+        company_description,
+        company_overview,
         id]
     );
     return result.rows[0];
