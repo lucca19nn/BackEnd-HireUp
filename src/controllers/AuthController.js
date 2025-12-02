@@ -70,10 +70,11 @@ exports.login = async (req, res) => {
     );
 
     res.status(200).json({ 
-        message: 'Login realizado com sucesso!', 
-        token: token,
-        role: user.role
-    });
+      message: 'Login realizado com sucesso!', 
+      token: token,
+      role: user.role,
+      userId: user.id
+  });
 
   } catch (error) {
     console.error('Erro no login:', error);

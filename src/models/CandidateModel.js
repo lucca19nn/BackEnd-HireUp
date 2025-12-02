@@ -33,7 +33,9 @@ module.exports = {
   },
 
   async delete(id) {
-    const result = await pool.query('DELETE FROM candidates WHERE id = $1 RETURNING id', [id]);
-    return result.rows[0];
+    await pool.query('DELETE FROM applications WHERE candidate_id = $1', [id]);
+
+    const result = await pool.query('DELETE FROM candidates WHERE id = $1', [id]);
+    return result.rowCount > 0;
   }
 };
