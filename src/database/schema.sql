@@ -11,7 +11,6 @@ CREATE TABLE users (
     created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP )
 ;
 
-
 CREATE TABLE jobs (
     id SERIAL PRIMARY KEY,
     title VARCHAR(255) NOT NULL,
@@ -30,6 +29,8 @@ CREATE TABLE jobs (
     company_vision TEXT,
     company_values TEXT,
     address TEXT,
+    company_description TEXT,
+    company_overview TEXT,
     created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP, 
     FOREIGN KEY (recruiter_id) REFERENCES users(id) ON DELETE CASCADE
 );
@@ -80,217 +81,225 @@ INSERT INTO users (name, email, password, role, avatar_url) VALUES
 );
 
 INSERT INTO jobs (
-    title, description, company, city, type, salary, status, recruiter_id,
+    id, title, description, company, city, type, salary, status, recruiter_id,
     salary_description, summary, responsibilities, requirements,
     company_mission, company_vision, company_values, address,
     company_description, company_overview
 ) VALUES 
 (
+    1,
     'Desenvolvedor Backend Senior',
-    'Experiência sólida com Node.js, PostgreSQL, Docker e arquitetura escalável. Atuação em sistemas distribuídos e aplicações de alta performance.',
+    'Experiencia solida com Node.js, PostgreSQL, Docker e arquitetura escalavel. Atuacao em sistemas distribuido s e aplicacoes de alta performance.',
     'High Tech',
     'Sao Paulo',
     'CLT',
     12000.00,
     'OPEN',
     1,
-    'Faixa salarial compatível com sênior, incluindo VR, VA, plano de saúde e bônus anual.',
-    'Profissional experiente para atuar na criação e manutenção de serviços escaláveis.',
-    ARRAY['Criar APIs robustas', 'Gerenciar banco PostgreSQL', 'Implementar testes automatizados', 'Participar de decisões arquiteturais'],
-    ARRAY['5+ anos de experiência', 'Node.js avançado', 'SQL avançado', 'Docker e CI/CD', 'Experiência com microsserviços'],
-    'Inovar soluções tecnológicas e criar produtos digitais de alto impacto.',
-    'Ser referência nacional na criação de plataformas escaláveis e inteligentes.',
-    'Transparência, inovação, colaboração e respeito.',
-    'Avenida Paulista, 1000 - São Paulo',
+    'Faixa salarial compativel com senior, incluindo VR, VA, plano de saude e bonus anual.',
+    'Profissional experiente para atuar na criacao e manutencao de servicos escalaveis.',
+    ARRAY['Criar APIs robustas', 'Gerenciar banco PostgreSQL', 'Implementar testes automatizados', 'Participar de decisoes arquiteturais'],
+    ARRAY['5+ anos de experiencia', 'Node.js avancado', 'SQL avancado', 'Docker e CI/CD', 'Experiencia com microsservicos'],
+    'Inovar solucoes tecnologicas e criar produtos digitais de alto impacto.',
+    'Ser referencia nacional na criacao de plataformas escalaveis e inteligentes.',
+    'Transparencia, inovacao, colaboracao e respeito.',
+    'Avenida Paulista, 1000 - Sao Paulo',
     ARRAY[
-        'A High Tech é uma empresa focada no desenvolvimento de soluções digitais avançadas, atendendo clientes de diversos segmentos que buscam tecnologia de ponta. Nossos produtos são desenvolvidos com foco em escalabilidade, segurança e eficiência, permitindo que empresas cresçam de forma estruturada.',
-        'Trabalhamos com uma cultura forte de colaboração, onde os times são incentivados a compartilhar conhecimento, explorar novas tecnologias e participar de decisões importantes. Aqui, cada profissional tem autonomia para influenciar diretamente a evolução dos sistemas.'
+        'A High Tech e uma empresa focada no desenvolvimento de solucoes digitais avancadas, atendendo clientes de diversos segmentos que buscam tecnologia de ponta. Nossos produtos sao desenvolvidos com foco em escalabilidade, seguranca e eficiencia, permitindo que empresas crescam de forma estruturada.',
+        'Trabalhamos com uma cultura forte de colaboracao, onde os times sao incentivados a compartilhar conhecimento, explorar novas tecnologias e participar de decisoes importantes. Aqui, cada profissional tem autonomia para influenciar diretamente a evolucao dos sistemas.'
     ],
     ARRAY[
-        'Nossa equipe opera com metodologias ágeis, promovendo ciclos rápidos de entrega e validação. Incentivamos a pesquisa e desenvolvimento contínuo para garantir que nossas soluções estejam sempre alinhadas às melhores práticas do mercado.',
-        'A High Tech oferece um ambiente moderno, com foco em aprendizado constante e liberdade para propor novas ideias. Valorizamos profissionais criativos que queiram participar da construção de plataformas que impactam milhares de usuários.'
+        'Nossa equipe opera com metodologias ageis, promovendo ciclos rapidos de entrega e validacao. Incentivamos a pesquisa e desenvolvimento continuo para garantir que nossas solucoes estejam sempre alinhadas as melhores praticas do mercado.',
+        'A High Tech oferece um ambiente moderno, com foco em aprendizado constante e liberdade para propor novas ideias. Valorizamos profissionais criativos que queiram participar da construcao de plataformas que impactam milhares de usuarios.'
     ]
 ),
 (
+    2,
     'Designer UX/UI',
-    'Desenvolvimento de interfaces intuitivas e centradas no usuário, utilizando Figma, protótipo de alta fidelidade e testes de usabilidade.',
+    'Desenvolvimento de interfaces intuitivas e centradas no usuario, utilizando Figma, prototipo de alta fidelidade e testes de usabilidade.',
     'Nubank',
     'Rio de Janeiro',
     'PJ',
     8500.50,
     'OPEN',
     1,
-    'Pagamento mensal via contrato PJ + benefícios flexíveis.',
-    'Criação de experiências visuais que melhorem a jornada do usuário.',
-    ARRAY['Criar protótipos', 'Conduzir pesquisas', 'Realizar testes de usabilidade', 'Trabalhar com times multidisciplinares'],
-    ARRAY['Domínio em Figma', 'Experiência comprovada em UX', 'Pensamento centrado no usuário', 'Portfólio atual'],
-    'Descomplicar o acesso a serviços financeiros.',
-    'Ser líder global em experiência financeira digital.',
-    'Simplicidade, ética, foco no usuário e transparência.',
+    'Pagamento mensal via contrato PJ + beneficios flexiveis.',
+    'Criacao de experiencias visuais que melhorem a jornada do usuario.',
+    ARRAY['Criar prototipos', 'Conduzir pesquisas', 'Realizar testes de usabilidade', 'Trabalhar com times multidisciplinares'],
+    ARRAY['Dominio em Figma', 'Experiencia comprovada em UX', 'Pensamento centrado no usuario', 'Portfolio atual'],
+    'Descomplicar o acesso a servicos financeiros.',
+    'Ser lider global em experiencia financeira digital.',
+    'Simplicidade, etica, foco no usuario e transparencia.',
     'Rua das Laranjeiras, 250 - Rio de Janeiro',
     ARRAY[
-        'O Nubank é uma das principais fintechs do mundo e nasceu com a proposta de transformar a relação das pessoas com o dinheiro, eliminando burocracias e oferecendo serviços simples e acessíveis. Nossos times trabalham com foco absoluto na experiência do usuário.',
-        'O ambiente é altamente colaborativo, com profissionais de tecnologia e design trabalhando juntos para criar soluções inclusivas, intuitivas e seguras. A cultura forte valoriza autonomia e incentiva experimentação constante.'
+        'O Nubank e uma das principais fintechs do mundo e nasceu com a proposta de transformar a relacao das pessoas com o dinheiro, eliminando burocracias e oferecendo servicos simples e acessiveis. Nossos times trabalham com foco absoluto na experiencia do usuario.',
+        'O ambiente e altamente colaborativo, com profissionais de tecnologia e design trabalhando juntos para criar solucoes inclusivas, intuitivas e seguras. A cultura forte valoriza autonomia e incentiva experimentacao constante.'
     ],
     ARRAY[
-        'O Nubank aposta em inovação contínua, promovendo testes, validações e pesquisas frequentes para garantir que cada produto entregue gere impacto real na vida de milhões de usuários.',
-        'A empresa incentiva diversidade e inclusão, garantindo que diferentes perspectivas participem da construção de soluções mais humanas e eficientes. Aqui, o design tem papel estratégico no desenvolvimento da empresa.'
+        'O Nubank aposta em inovacao continua, promovendo testes, validacoes e pesquisas frequentes para garantir que cada produto entregue gere impacto real na vida de milhoes de usuarios.',
+        'A empresa incentiva diversidade e inclusao, garantindo que diferentes perspectivas participem da construcao de solucoes mais humanas e eficientes. Aqui, o design tem papel estrategico no desenvolvimento da empresa.'
     ]
 ),
 (
+    3,
     'Tech Lead',
-    'Liderança técnica de squads ágeis e tomada de decisões arquiteturais.',
+    'Lideranca tecnica de squads ageis e tomada de decisoes arquiteturais.',
     'Banco do Bradesco',
     'Belo Horizonte',
     'CLT',
     18000.00,
     'INTERVIEWING',
     2,
-    'Salário CLT com bônus anual, VR, VA e previdência privada.',
-    'Liderar squad de engenharia e suportar definições de arquitetura.',
-    ARRAY['Guiar decisões técnicas', 'Mentorar equipe', 'Participar de arquitetura corporativa', 'Garantir boas práticas'],
-    ARRAY['Experiência comprovada com liderança técnica', 'Conhecimento avançado em backend', 'DevOps e CI/CD', 'Metodologias ágeis'],
-    'Apoiar o crescimento financeiro do país por meio da tecnologia.',
+    'Salario CLT com bonus anual, VR, VA e previdencia privada.',
+    'Liderar squad de engenharia e suportar definicoes de arquitetura.',
+    ARRAY['Guiar decisoes tecnicas', 'Mentorar equipe', 'Participar de arquitetura corporativa', 'Garantir boas praticas'],
+    ARRAY['Experiencia comprovada com lideranca tecnica', 'Conhecimento avancado em backend', 'DevOps e CI/CD', 'Metodologias ageis'],
+    'Apoiar o crescimento financeiro do pais por meio da tecnologia.',
     'Ser o banco mais inovador e digital do Brasil.',
-    'Responsabilidade, ética, segurança e colaboração.',
+    'Responsabilidade, etica, seguranca e colaboracao.',
     'Av. Afonso Pena, 700 - Belo Horizonte',
     ARRAY[
-        'O Bradesco é um dos maiores bancos do Brasil e um dos líderes em transformação digital no setor financeiro. Com alto investimento em tecnologia, busca melhorar a experiência dos milhões de clientes por meio de soluções eficientes e seguras.',
-        'Ao integrar o time de tecnologia, o profissional participa de projetos estratégicos que envolvem modernização de sistemas, arquitetura escalável, segurança avançada e automação de processos.'
+        'O Bradesco e um dos maiores bancos do Brasil e um dos lideres em transformacao digital no setor financeiro. Com alto investimento em tecnologia, busca melhorar a experiencia dos milhoes de clientes por meio de solucoes eficientes e seguras.',
+        'Ao integrar o time de tecnologia, o profissional participa de projetos estrategicos que envolvem modernizacao de sistemas, arquitetura escalavel, seguranca avancada e automacao de processos.'
     ],
     ARRAY[
-        'A instituição valoriza responsabilidade, colaboração e inovação contínua, oferecendo ambiente seguro e estruturado para desenvolvimento profissional.',
-        'A cultura incentiva o aprendizado constante e a participação ativa de cada colaborador na criação de soluções que ajudam a transformar o cenário financeiro brasileiro.'
+        'A instituicao valoriza responsabilidade, colaboracao e inovacao continua, oferecendo ambiente seguro e estruturado para desenvolvimento profissional.',
+        'A cultura incentiva o aprendizado constante e a participacao ativa de cada colaborador na criacao de solucoes que ajudam a transformar o cenario financeiro brasileiro.'
     ]
 ),
 (
+    4,
     'Estagiario de QA',
-    'Testes manuais, automação básica e documentação de evidências.',
+    'Testes manuais, automacao basica e documentacao de evidencias.',
     'Arcell Mital',
     'Curitiba',
     'Estagio',
     2500.00,
     'CLOSED',
     3,
-    'Bolsa estágio + VT + possibilidade de efetivação.',
+    'Bolsa estagio + VT + possibilidade de efetivacao.',
     'Apoiar rotinas de testes em produtos de alta complexidade.',
-    ARRAY['Executar testes', 'Criar cenários simples', 'Documentar bugs', 'Analisar requisitos'],
-    ARRAY['Estar cursando TI', 'Conhecimentos básicos de testes', 'Organização e atenção aos detalhes'],
-    'Criar produtos industriais de alto padrão.',
-    'Ser líder global em tecnologia industrial e inovação.',
-    'Compromisso, segurança, responsabilidade e qualidade.',
+    ARRAY['Executar testes', 'Criar cenarios simples', 'Documentar bugs', 'Analisar requisitos'],
+    ARRAY['Estar cursando TI', 'Conhecimentos basicos de testes', 'Organizacao e atencao aos detalhes'],
+    'Criar produtos industriais de alto padrao.',
+    'Ser lider global em tecnologia industrial e inovacao.',
+    'Compromisso, seguranca, responsabilidade e qualidade.',
     'Rua XV de Novembro, 90 - Curitiba',
     ARRAY[
-        'A ArcelorMittal é líder mundial na produção de aço e referência em inovação industrial. Com forte presença no Brasil, a empresa atua em diferentes setores, incluindo construção civil, automotivo e mineração.',
-        'A companhia investe constantemente em automação, segurança e desenvolvimento de novos talentos, oferecendo oportunidades reais de crescimento para profissionais que desejam atuar em ambientes modernos.'
+        'A ArcelorMittal e lider mundial na producao de aço e referencia em inovacao industrial. Com forte presenca no Brasil, a empresa atua em diferentes setores, incluindo construcao civil, automotivo e mineracao.',
+        'A companhia investe constantemente em automacao, seguranca e desenvolvimento de novos talentos, oferecendo oportunidades reais de crescimento para profissionais que desejam atuar em ambientes modernos.'
     ],
     ARRAY[
-        'O ambiente é marcado pela colaboração entre equipes multidisciplinares e pelo foco em melhoria contínua. A empresa valoriza profissionais analíticos e comprometidos com entregas de alta qualidade.',
-        'Estagiários têm contato direto com tecnologias reais e processos industriais complexos, desenvolvendo habilidades técnicas e comportamentais essenciais para carreira na área.'
+        'O ambiente e marcado pela colaboracao entre equipes multidisciplinares e pelo foco em melhoria continua. A empresa valoriza profissionais analiticos e comprometidos com entregas de alta qualidade.',
+        'Estagiarios tem contato direto com tecnologias reais e processos industriais complexos, desenvolvendo habilidades tecnicas e comportamentais essenciais para carreira na area.'
     ]
 ),
 (
+    5,
     'Desenvolvedor Frontend Pleno',
-    'Desenvolvimento de interfaces escaláveis utilizando React e Next.js em produtos de grande demanda.',
+    'Desenvolvimento de interfaces escalaveis utilizando React e Next.js em produtos de grande demanda.',
     'Stone',
     'Sao Paulo',
     'CLT',
     9000.00,
     'OPEN',
     1,
-    'Faixa salarial de pleno + VR, VA, plano de saúde, bônus anual.',
-    'Participação em plataformas de grande escala e alta disponibilidade.',
-    ARRAY['Criar componentes reutilizáveis', 'Consumir APIs', 'Implementar acessibilidade', 'Melhorar performance'],
-    ARRAY['React avançado', 'Next.js', 'Git', 'CSS moderno', 'APIs REST'],
-    'Impulsionar negócios utilizando tecnologia.',
-    'Ser referência nacional em soluções de pagamento e serviços financeiros.',
-    'Cliente em primeiro lugar, autonomia, confiança e responsabilidade.',
-    'Rua dos Pinheiros, 650 - São Paulo',
+    'Faixa salarial de pleno + VR, VA, plano de saude, bonus anual.',
+    'Participacao em plataformas de grande escala e alta disponibilidade.',
+    ARRAY['Criar componentes reutilizaveis', 'Consumir APIs', 'Implementar acessibilidade', 'Melhorar performance'],
+    ARRAY['React avancado', 'Next.js', 'Git', 'CSS moderno', 'APIs REST'],
+    'Impulsionar negocios utilizando tecnologia.',
+    'Ser referencia nacional em solucoes de pagamento e servicos financeiros.',
+    'Cliente em primeiro lugar, autonomia, confianca e responsabilidade.',
+    'Rua dos Pinheiros, 650 - Sao Paulo',
     ARRAY[
-        'A Stone é uma empresa de tecnologia e serviços financeiros que ajuda empreendedores de todo o Brasil a crescer. Com soluções de pagamento modernas e robustas, impacta milhões de clientes diariamente.',
-        'A empresa possui forte cultura de autonomia e responsabilidade, com equipes multidisciplinares que utilizam tecnologias de ponta para desenvolver produtos escaláveis.'
+        'A Stone e uma empresa de tecnologia e servicos financeiros que ajuda empreendedores de todo o Brasil a crescer. Com solucoes de pagamento modernas e robustas, impacta milhoes de clientes diariamente.',
+        'A empresa possui forte cultura de autonomia e responsabilidade, com equipes multidisciplinares que utilizam tecnologias de ponta para desenvolver produtos escalaveis.'
     ],
     ARRAY[
-        'Os profissionais têm liberdade para testar ideias e atuar diretamente na evolução dos produtos. O ambiente é dinâmico, acelerado e orientado à resolução de problemas.',
-        'A Stone valoriza um time forte e colaborativo, e trabalha para garantir que cada pessoa tenha condições de crescer e assumir novos desafios constantemente.'
+        'Os profissionais tem liberdade para testar ideias e atuar diretamente na evolucao dos produtos. O ambiente e dinamico, acelerado e orientado a resolucao de problemas.',
+        'A Stone valoriza um time forte e colaborativo, e trabalha para garantir que cada pessoa tenha condicoes de crescer e assumir novos desafios constantemente.'
     ]
 ),
 (
+    6,
     'Cientista de Dados',
-    'Modelagem estatística, machine learning e análise de dados para produtos de grande escala.',
+    'Modelagem estatistica, machine learning e analise de dados para produtos de grande escala.',
     'iFood',
     'Campinas',
-    'Estágio',
+    'Estagio',
     15000.00,
     'OPEN',
     2,
-    'Salário compatível com o mercado + bônus de resultado.',
-    'Atuação com times de dados focados em impacto real.',
+    'Salario compativel com o mercado + bonus de resultado.',
+    'Atuacao com times de dados focados em impacto real.',
     ARRAY['Criar modelos preditivos', 'Trabalhar com big data', 'Analisar KPIs', 'Automatizar pipelines'],
-    ARRAY['Python avançado', 'SQL', 'Machine Learning', 'Estatística', 'Versionamento'],
+    ARRAY['Python avancado', 'SQL', 'Machine Learning', 'Estatistica', 'Versionamento'],
     'Transformar o delivery por meio de tecnologia.',
-    'Expandir globalmente utilizando IA e inovação contínua.',
-    'Velocidade, inovação, responsabilidade e diversidade.',
+    'Expandir globalmente utilizando IA e inovacao continua.',
+    'Velocidade, inovacao, responsabilidade e diversidade.',
     'Av. Norte-Sul, 1500 - Campinas',
     ARRAY[
-        'O iFood é a maior plataforma de delivery da América Latina e líder em inovação no setor. A empresa utiliza inteligência artificial e dados em larga escala para otimizar entregas, consumo e logística.',
-        'Os times de tecnologia trabalham com ambientes altamente complexos e modernos, desenvolvendo modelos e plataformas que processam milhões de eventos diariamente.'
+        'O iFood e a maior plataforma de delivery da America Latina e lider em inovacao no setor. A empresa utiliza inteligencia artificial e dados em larga escala para otimizar entregas, consumo e logistica.',
+        'Os times de tecnologia trabalham com ambientes altamente complexos e modernos, desenvolvendo modelos e plataformas que processam milhoes de eventos diariamente.'
     ],
     ARRAY[
-        'A cultura do iFood incentiva aprendizado constante, experimentação e uso intensivo de dados para tomada de decisões.',
-        'Quem entra para o time acessa um ecossistema tecnológico avançado, com oportunidades reais de crescimento e participação em soluções de alto impacto social e econômico.'
+        'A cultura do iFood incentiva aprendizado constante, experimentacao e uso intensivo de dados para tomada de decisoes.',
+        'Quem entra para o time acessa um ecossistema tecnologico avancado, com oportunidades reais de crescimento e participacao em solucoes de alto impacto social e economico.'
     ]
 ),
 (
+    7,
     'Analista de Suporte Tecnico',
-    'Atendimento N2, automação de rotinas e suporte a clientes corporativos.',
+    'Atendimento N2, automacao de rotinas e suporte a clientes corporativos.',
     'Totvs',
     'Rio de Janeiro',
-    'Pessoa Jurídica',
+    'Pessoa Juridica',
     4500.00,
     'OPEN',
     3,
-    'Contrato PJ com horário flexível + suporte de infraestrutura.',
-    'Atuação em sistemas corporativos de grande escala.',
+    'Contrato PJ com horario flexivel + suporte de infraestrutura.',
+    'Atuacao em sistemas corporativos de grande escala.',
     ARRAY['Atender chamados', 'Criar scripts', 'Documentar processos', 'Suporte a ERP'],
-    ARRAY['Infraestrutura', 'Linux', 'SQL básico', 'Boa comunicação'],
+    ARRAY['Infraestrutura', 'Linux', 'SQL basico', 'Boa comunicacao'],
     'Digitalizar empresas brasileiras.',
-    'Ser a maior referência em software de gestão do país.',
-    'Excelência, ética, responsabilidade e qualidade.',
-    'Rua Barão de Mesquita, 40 - Rio de Janeiro',
+    'Ser a maior referencia em software de gestao do pais.',
+    'Excelencia, etica, responsabilidade e qualidade.',
+    'Rua Barao de Mesquita, 40 - Rio de Janeiro',
     ARRAY[
-        'A TOTVS é líder nacional em desenvolvimento de sistemas de gestão e atua auxiliando empresas de diversos segmentos a modernizarem seus processos. Com presença em todo o país, oferece soluções completas para organizações de diferentes portes.',
-        'A empresa investe continuamente em inovação, automação e tecnologia de ponta para entregar plataformas robustas, seguras e eficientes, impactando milhares de clientes corporativos.'
+        'A TOTVS e lider nacional em desenvolvimento de sistemas de gestao e atua auxiliando empresas de diversos segmentos a modernizarem seus processos. Com presenca em todo o pais, oferece solucoes completas para organizacoes de diferentes portes.',
+        'A empresa investe continuamente em inovacao, automacao e tecnologia de ponta para entregar plataformas robustas, seguras e eficientes, impactando milhares de clientes corporativos.'
     ],
     ARRAY[
-        'O ambiente incentiva autonomia, colaboração e aprendizado contínuo. Os profissionais têm contato com tecnologias modernas e desafios reais em ambientes de missão crítica.',
-        'A TOTVS oferece oportunidades concretas de desenvolvimento e crescimento, valorizando profissionais comprometidos com excelência e evolução técnica.'
+        'O ambiente incentiva autonomia, colaboracao e aprendizado continuo. Os profissionais tem contato com tecnologias modernas e desafios reais em ambientes de missao critica.',
+        'A TOTVS oferece oportunidades concretas de desenvolvimento e crescimento, valorizando profissionais comprometidos com excelencia e evolucao tecnica.'
     ]
 ),
 (
+    8,
     'Scrum Master',
-    'Facilitação de cerimônias ágeis, desenvolvimento de métricas e remoção de impedimentos.',
+    'Facilitacao de ceremonias ageis, desenvolvimento de metricas e remocao de impedimentos.',
     'Mercado Livre',
     'Porto Alegre',
     'Jovem Aprendiz',
     11000.00,
     'INTERVIEWING',
     1,
-    'Remuneração com bônus trimestral + ambiente de alto impacto.',
-    'Atuação em squads que utilizam metodologias ágeis avançadas.',
-    ARRAY['Facilitar reuniões', 'Apoiar squads', 'Gerenciar impedimentos', 'Mensurar métricas ágeis'],
-    ARRAY['Scrum', 'Kanban', 'Comunicação clara', 'Liderança servidora'],
-    'Potencializar o comércio digital na América Latina.',
+    'Remuneracao com bonus trimestral + ambiente de alto impacto.',
+    'Atuacao em squads que utilizam metodologias ageis avancadas.',
+    ARRAY['Facilitar reunioes', 'Apoiar squads', 'Gerenciar impedimentos', 'Mensurar metricas ageis'],
+    ARRAY['Scrum', 'Kanban', 'Comunicacao clara', 'Lideranca servidora'],
+    'Potencializar o comercio digital na America Latina.',
     'Expandir globalmente por meio de tecnologia de ponta.',
-    'Agilidade, abertura, colaboração e inclusão.',
+    'Agilidade, abertura, colaboracao e inclusao.',
     'Av. Ipiranga, 2000 - Porto Alegre',
     ARRAY[
-        'O Mercado Livre é líder em e-commerce na América Latina e referência internacional em inovação, tecnologia e operações logísticas de grande escala. Seu ecossistema digital conecta milhões de usuários e empreendedores diariamente.',
-        'As equipes trabalham com autonomia e foco em entregar soluções rápidas, seguras e escaláveis que impactam de maneira significativa a economia digital do continente.'
+        'O Mercado Livre e lider em e-commerce na America Latina e referencia internacional em inovacao, tecnologia e operacoes logisticas de grande escala. Seu ecossistema digital conecta milhoes de usuarios e empreendedores diariamente.',
+        'As equipes trabalham com autonomia e foco em entregar solucoes rapidas, seguras e escalaveis que impactam de maneira significativa a economia digital do continente.'
     ],
     ARRAY[
-        'A cultura da empresa valoriza agilidade, liberdade e colaboração. Profissionais são incentivados a testar ideias, experimentar abordagens novas e utilizar dados para tomar decisões estratégicas.',
-        'Aqui, cada colaborador tem a chance de contribuir para plataformas de altíssimo impacto, utilizando tecnologia moderna e boas práticas de desenvolvimento ágil.'
+        'A cultura da empresa valoriza agilidade, liberdade e colaboracao. Profissionais sao incentivados a testar ideias, experimentar abordagens novas e utilizar dados para tomar decisoes estrategicas.',
+        'Aqui, cada colaborador tem a chance de contribuir para plataformas de altissimo impacto, utilizando tecnologia moderna e boas praticas de desenvolvimento agil.'
     ]
 );
 

@@ -13,9 +13,14 @@ module.exports = {
   },
 
   async getById(req, res) {
-    const job = await JobModel.getById(req.params.id);
-    if (!job) return res.status(404).json({ error: 'Job not found' });
-    return res.json(job);
+    try {
+      const job = await JobModel.getById(req.params.id);
+      if (!job) return res.status(404).json({ error: 'Job not found' });
+      return res.json(job);
+    } catch (err) {
+      console.error('Error in JobController.getById:', err.message || err);
+      return res.status(500).json({ error: 'Erro ao buscar vaga.' });
+    }
   },
 
   async create(req, res) {
