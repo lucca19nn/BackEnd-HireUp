@@ -11,6 +11,7 @@ CREATE TABLE users (
     created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP )
 ;
 
+
 CREATE TABLE jobs (
     id SERIAL PRIMARY KEY,
     title VARCHAR(255) NOT NULL,
@@ -43,16 +44,16 @@ CREATE TABLE candidates (
     created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP 
 );
 
-CREATE TABLE applications (
-    id SERIAL PRIMARY KEY,
-    job_id INTEGER NOT NULL,
-    candidate_id INTEGER NOT NULL,
-    status VARCHAR(50) DEFAULT 'APPLIED', 
-    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (job_id) REFERENCES jobs(id) ON DELETE CASCADE,
-    FOREIGN KEY (candidate_id) REFERENCES candidates(id),
-    UNIQUE(job_id, candidate_id) 
-);
+    CREATE TABLE applications (
+        id SERIAL PRIMARY KEY,
+        job_id INTEGER NOT NULL,
+        candidate_id INTEGER NOT NULL,
+        status VARCHAR(50) DEFAULT 'APPLIED', 
+        created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+        FOREIGN KEY (job_id) REFERENCES jobs(id) ON DELETE CASCADE,
+        FOREIGN KEY (candidate_id) REFERENCES candidates(id),
+        UNIQUE(job_id, candidate_id) 
+    );
 
 INSERT INTO users (name, email, password, role, avatar_url) VALUES 
 (
