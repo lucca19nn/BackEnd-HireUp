@@ -308,7 +308,7 @@ INSERT INTO jobs (
 INSERT INTO candidates (name, email, phone, linkedin_url, avatar_url, password, status) VALUES
 ('Lucas Oliveira', 'lucas.dev@email.com', '11999991111', 'linkedin.com/in/lucasdev', 'https://i.pravatar.cc/150?u=lucasdev', 'hash_123', 'Triagem'),
 ('Fernanda Costa', 'fernanda.design@email.com', '21988882222', 'linkedin.com/in/fernandaux', 'https://i.pravatar.cc/150?u=fernandaux', 'hash_456', 'Entrevista'),
-('João Pedro', 'joao.pedro@email.com', '31977773333', 'linkedin.com/in/joaopedro', 'https://i.pravatar.cc/150?u=joaopedro', 'hash_789', 'Triagem'),
+('Joao Pedro', 'joao.pedro@email.com', '31977773333', 'linkedin.com/in/joaopedro', 'https://i.pravatar.cc/150?u=joaopedro', 'hash_789', 'Triagem'),
 ('Mariana Souza', 'mari.souza@email.com', '41966664444', 'linkedin.com/in/marisouza', 'https://i.pravatar.cc/150?u=marisouza', 'hash_abc', 'Aprovado');
 
 INSERT INTO applications (job_id, candidate_id, status) VALUES 
