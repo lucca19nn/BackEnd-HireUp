@@ -15,7 +15,7 @@ module.exports = {
 
   async create(req, res) {
     try {
-      const { name, email, phone, linkedin_url, avatar_url, password } = req.body;
+      const { name, email, phone, linkedin_url, avatar_url, password, status } = req.body;
 
       if (!password) {
         return res.status(400).json({ error: 'Password is required' });
@@ -29,7 +29,8 @@ module.exports = {
         phone, 
         linkedin_url, 
         avatar_url, 
-        password: passwordHash 
+        password: passwordHash,
+        status: status || 'Triagem'
       });
 
       return res.status(201).json(candidate);
