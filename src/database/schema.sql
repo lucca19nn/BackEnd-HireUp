@@ -303,6 +303,7 @@ INSERT INTO jobs (
     ]
 );
 
+
 INSERT INTO candidates (name, email, phone, linkedin_url, avatar_url, password) VALUES
 ('Lucas Oliveira', 'lucas.dev@email.com', '11999991111', 'linkedin.com/in/lucasdev', 'https://i.pravatar.cc/150?u=lucasdev', 'hash_123'),
 ('Fernanda Costa', 'fernanda.design@email.com', '21988882222', 'linkedin.com/in/fernandaux', 'https://i.pravatar.cc/150?u=fernandaux', 'hash_456'),
