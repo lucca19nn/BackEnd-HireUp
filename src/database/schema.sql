@@ -34,6 +34,7 @@ CREATE TABLE candidates (
     linkedin_url VARCHAR(255),
     avatar_url VARCHAR(255),
     password VARCHAR(255),
+    status VARCHAR(50) DEFAULT 'Triagem',
     created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP 
 );
 
@@ -88,11 +89,11 @@ INSERT INTO jobs (title, description, company, city, type, salary, status, recru
 ('Coordenador de TI', 'Gestao de equipes, infraestrutura de TI e governanca.', 'Global Systems', 'Brasilia', 'CLT', 13000.00, 'OPEN', 2);
 
 
-INSERT INTO candidates (name, email, phone, linkedin_url, avatar_url, password) VALUES
-('Lucas Oliveira', 'lucas.dev@email.com', '11999991111', 'linkedin.com/in/lucasdev', 'https://i.pravatar.cc/150?u=lucasdev', 'hash_123'),
-('Fernanda Costa', 'fernanda.design@email.com', '21988882222', 'linkedin.com/in/fernandaux', 'https://i.pravatar.cc/150?u=fernandaux', 'hash_456'),
-('João Pedro', 'joao.pedro@email.com', '31977773333', 'linkedin.com/in/joaopedro', 'https://i.pravatar.cc/150?u=joaopedro', 'hash_789'),
-('Mariana Souza', 'mari.souza@email.com', '41966664444', 'linkedin.com/in/marisouza', 'https://i.pravatar.cc/150?u=marisouza', 'hash_abc');
+INSERT INTO candidates (name, email, phone, linkedin_url, avatar_url, password, status) VALUES
+('Lucas Oliveira', 'lucas.dev@email.com', '11999991111', 'linkedin.com/in/lucasdev', 'https://i.pravatar.cc/150?u=lucasdev', 'hash_123', 'Triagem'),
+('Fernanda Costa', 'fernanda.design@email.com', '21988882222', 'linkedin.com/in/fernandaux', 'https://i.pravatar.cc/150?u=fernandaux', 'hash_456', 'Entrevista'),
+('João Pedro', 'joao.pedro@email.com', '31977773333', 'linkedin.com/in/joaopedro', 'https://i.pravatar.cc/150?u=joaopedro', 'hash_789', 'Triagem'),
+('Mariana Souza', 'mari.souza@email.com', '41966664444', 'linkedin.com/in/marisouza', 'https://i.pravatar.cc/150?u=marisouza', 'hash_abc', 'Aprovado');
 
 INSERT INTO applications (job_id, candidate_id, status) VALUES 
 (1, 1, 'INTERVIEW'),   
