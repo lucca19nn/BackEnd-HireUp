@@ -29,8 +29,8 @@ CREATE TABLE jobs (
     company_vision TEXT,
     company_values TEXT,
     address TEXT,
-    company_description TEXT,
-    company_overview TEXT,
+    company_description TEXT[],
+    company_overview TEXT[],
     created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP, 
     FOREIGN KEY (recruiter_id) REFERENCES users(id) ON DELETE CASCADE
 );
@@ -301,6 +301,276 @@ INSERT INTO jobs (
     ARRAY[
         'A cultura da empresa valoriza agilidade, liberdade e colaboracao. Profissionais sao incentivados a testar ideias, experimentar abordagens novas e utilizar dados para tomar decisoes estrategicas.',
         'Aqui, cada colaborador tem a chance de contribuir para plataformas de altissimo impacto, utilizando tecnologia moderna e boas praticas de desenvolvimento agil.'
+    ]
+),
+(
+    9,
+    'Desenvolvedor Fullstack Pleno',
+    'Atuacao em sistemas de grande porte utilizando Node.js, React, microservicos e arquitetura limpa. Responsavel por entregar features completas e colaborar com squads multidisciplinares.',
+    'CI&T',
+    'Campinas',
+    'CLT',
+    10500.00,
+    'OPEN',
+    2,
+    'Salario competitivo + VR + VA + PLR + apoio educacional.',
+    'Atuar em solucoes digitais escalaveis com foco em performance e qualidade.',
+    ARRAY['Desenvolver APIs', 'Criar interfaces responsivas', 'Participar de code reviews', 'Implementar testes'],
+    ARRAY['React', 'Node.js', 'Docker', 'Arquitetura limpa', 'Git'],
+    'Transformar empresas por meio de tecnologia e alta performance.',
+    'Ser referencia global em transformacao digital.',
+    'Colaboracao, aprendizado continuo, excelencia e respeito.',
+    'Rodovia Dom Pedro I, 300 - Campinas',
+    ARRAY[
+        'A CI&T e lider em transformacao digital e trabalha com empresas globais entregando produtos inovadores. Focada em performance, qualidade e agilidade, utiliza metodologias modernas e times altamente especializados.',
+        'O ambiente favorece troca de conhecimento, autonomia e envolvimento direto com desafios reais em escala global.'
+    ],
+    ARRAY[
+        'A empresa incentiva evolucao tecnica e oferece plano de carreira estruturado para profissionais de tecnologia.',
+        'Os squads trabalham com cultura de dados, entregas rapidas e alta colaboracao entre diferentes areas.'
+    ]
+),
+(
+    10,
+    'Product Owner',
+    'Responsavel por backlog, discovery, contexto de negocio e alinhamento entre stakeholders.',
+    'PicPay',
+    'Vitoria',
+    'CLT',
+    13800.00,
+    'OPEN',
+    1,
+    'Salario CLT + bonus anual + auxilio home office.',
+    'Gerenciar backlog e entregar valor continuo ao usuario.',
+    ARRAY['Refinar backlog', 'Conduzir discovery', 'Acompanhar KPIs', 'Priorizar entregas'],
+    ARRAY['PO experiente', 'Conhecimento de UX', 'Agile', 'Boa comunicacao'],
+    'Simplificar transacoes financeiras para milhoes de pessoas.',
+    'Ser lider em pagamentos digitais na America Latina.',
+    'Inovacao, transparencia, autonomia e foco no cliente.',
+    'Av. Nossa Senhora da Penha, 1400 - Vitoria',
+    ARRAY[
+        'O PicPay e uma das maiores plataformas de pagamento do Brasil, atuando com produtos digitais de alto impacto e usuario no centro.',
+        'A cultura da empresa incentiva autonomia, ownership e inovacao continua, valorizando profissionais estrategicos.'
+    ],
+    ARRAY[
+        'Os times trabalham com agilidade, orientacao a dados e foco em resultados de negocio.',
+        'Profissionais participam ativamente da evolucao dos produtos e da experiencia do cliente.'
+    ]
+),
+(
+    11,
+    'Engenheiro de Software Mobile',
+    'Desenvolvimento de aplicativos mobile de grande escala utilizando React Native e integrações com APIs modernas.',
+    'Magazine Luiza',
+    'Franca',
+    'CLT',
+    14000.00,
+    'OPEN',
+    3,
+    'Salario competitivo + PLR + plano de saude + beneficios internos.',
+    'Construir apps performaticos para milhoes de usuarios.',
+    ARRAY['Criar apps mobile', 'Implementar integrações', 'Melhorar performance', 'Participar de arquiteturas modernas'],
+    ARRAY['React Native', 'TypeScript', 'APIs REST', 'Git'],
+    'Transformar o varejo brasileiro por meio da tecnologia.',
+    'Ser a maior plataforma digital de varejo da America Latina.',
+    'Cliente em primeiro lugar, colaboracao e protagonismo.',
+    'Av. Severino Tostes, 900 - Franca',
+    ARRAY[
+        'O Magalu se tornou uma das empresas mais tecnologicas do Brasil, investindo fortemente em digitalizacao e experiencia mobile.',
+        'O ambiente estimula autonomia, aprendizado continuo e inovacao para escalar produtos com milhoes de acessos diarios.'
+    ],
+    ARRAY[
+        'A cultura valoriza criatividade, responsabilidade e tomada de decisao baseada em dados.',
+        'Profissionais atuam diretamente em produtos que definem o futuro do varejo digital.'
+    ]
+),
+(
+    12,
+    'Administrador de Banco de Dados (DBA)',
+    'Gerenciamento de ambientes PostgreSQL, SQL Server e MySQL com foco em segurança, disponibilidade e performance.',
+    'SICOOB',
+    'Brasilia',
+    'CLT',
+    15000.00,
+    'OPEN',
+    1,
+    'Salario CLT + previdencia + auxilio educacional + VR.',
+    'Garantir alta disponibilidade e performance de bancos de dados.',
+    ARRAY['Monitorar BD', 'Criar rotinas de backup', 'Otimizar queries', 'Gerenciar seguranca'],
+    ARRAY['PostgreSQL', 'SQL Server', 'Shell Script', 'Infraestrutura'],
+    'Impulsionar cooperados por meio de tecnologia e servicos financeiros.',
+    'Ser o maior sistema de cooperativas do Brasil.',
+    'Cooperacao, confianca e responsabilidade.',
+    'Setor Bancario Norte, Quadra 5 - Brasilia',
+    ARRAY[
+        'O Sicoob atua com sistemas financeiros robustos e de alta criticidade, exigindo profissionais altamente especializados.',
+        'A empresa investe em inovacao e modernizacao de ambientes corporativos, com foco em seguranca e escabilidade.'
+    ],
+    ARRAY[
+        'O ambiente e colaborativo e valoriza crescimento continuo.',
+        'Profissionais participam de projetos de transformacao digital que impactam milhares de cooperados.'
+    ]
+),
+(
+    13,
+    'Engenheiro DevOps',
+    'Construção e manutenção de pipelines CI/CD, automação de infraestrutura e observabilidade.',
+    'XP Inc.',
+    'São Paulo',
+    'Pessoa Juridica',
+    16000.00,
+    'OPEN',
+    2,
+    'Contrato PJ + beneficios flexiveis + auxilio educacional.',
+    'Atuar com automacao e infraestrutura escalavel.',
+    ARRAY['Criar pipelines', 'Gerenciar Kubernetes', 'Monitorar aplicacoes', 'Automatizar processos'],
+    ARRAY['AWS', 'Docker', 'Kubernetes', 'Terraform', 'CI/CD'],
+    'Transformar o mercado financeiro com tecnologia.',
+    'Ser maior plataforma de investimentos da America Latina.',
+    'Transparencia, responsabilidade, foco no cliente.',
+    'Av. Brigadeiro Faria Lima, 4000 - Sao Paulo',
+    ARRAY[
+        'A XP e referencia em tecnologia financeira, com sistemas que precisam operar em alta disponibilidade.',
+        'Times trabalham com engenharia de ponta e cultura forte de automacao, testes e observabilidade.'
+    ],
+    ARRAY[
+        'A empresa estimula autonomia, inovacao e aprendizado continuo.',
+        'Profissionais atuam em ambientes complexos com grande volume de dados e transacoes.'
+    ]
+),
+(
+    14,
+    'Analista de Marketing Digital',
+    'Gestão de campanhas, criacao de conteudo e analise de performance.',
+    'Hotmart',
+    'Belo Horizonte',
+    'CLT',
+    7200.00,
+    'OPEN',
+    3,
+    'Salario CLT + PLR + apoio educacional.',
+    'Criar estrategias para aumentar conversao e engajamento.',
+    ARRAY['Criar campanhas', 'Gerenciar redes sociais', 'Analisar métricas', 'Planejar conteudos'],
+    ARRAY['Marketing', 'Copywriting', 'Google Ads', 'Meta Ads'],
+    'Empoderar criadores de conteudo no mundo todo.',
+    'Expandir globalmente com educacao digital.',
+    'Cultura forte, inovação e transparencia.',
+    'Av. Raja Gabaglia, 3000 - Belo Horizonte',
+    ARRAY[
+        'A Hotmart e uma das maiores plataformas de produtos digitais do mundo e conecta criadores e consumidores.',
+        'O ambiente e dinamico e estimula criacao, autonomia e uso de dados para estrategias inteligentes.'
+    ],
+    ARRAY[
+        'Profissionais tem acesso a ferramentas modernas e atuam diretamente em campanhas internacionais.',
+        'A cultura valoriza diversidade, aprendizado continuo e inovacao.'
+    ]
+),
+(
+    15,
+    'Arquiteto de Software',
+    'Definir arquiteturas escalaveis, guiar squads e validar solucoes complexas.',
+    'Banco Inter',
+    'Belo Horizonte',
+    'CLT',
+    19500.00,
+    'OPEN',
+    1,
+    'Salario CLT com PLR + beneficios premium.',
+    'Atuar com arquitetura moderna e sistemas financeiros de alta criticidade.',
+    ARRAY['Criar arquiteturas', 'Revisar codigo', 'Definir padroes', 'Mentorar squads'],
+    ARRAY['Microservicos', 'Cloud AWS', 'Java', 'Node.js', 'Kubernetes'],
+    'Transformar servicos financeiros com digitalizacao total.',
+    'Ser um banco 100% digital e inovador.',
+    'Transparencia, eficiencia, inovacao e foco no cliente.',
+    'Av. Barbacena, 1200 - Belo Horizonte',
+    ARRAY[
+        'O Banco Inter e referencia em digitalizacao bancária e opera com alta disponibilidade e escalabilidade.',
+        'A area de tecnologia trabalha com sistemas modernos, cultura de dados e foco extremo em performance.'
+    ],
+    ARRAY[
+        'Profissionais sao incentivados a testar novas abordagens e propor solucoes inovadoras.',
+        'O banco investe pesado em arquitetura moderna e experiencia digital.'
+    ]
+),
+(
+    16,
+    'Analista Financeiro Pleno',
+    'Gestao financeira, reconciliacao, planejamento e controle.',
+    'Vale',
+    'Belo Horizonte',
+    'CLT',
+    9800.00,
+    'OPEN',
+    3,
+    'Salario CLT + plano de carreira + beneficios completos.',
+    'Atuar com processos financeiros de grande complexidade.',
+    ARRAY['Criar relatorios', 'Analisar fluxo de caixa', 'Controlar despesas', 'Conciliação de contas'],
+    ARRAY['Excel avançado', 'Analise financeira', 'Raciocinio logico', 'Organizacao'],
+    'Gerar valor sustentavel com mineracao responsavel.',
+    'Ser lider global em mineracao com responsabilidade ambiental.',
+    'Seguranca, sustentabilidade, etica e respeito.',
+    'Av. Joao Pinheiro, 400 - Belo Horizonte',
+    ARRAY[
+        'A Vale e uma das maiores empresas de mineracao do mundo e opera com processos complexos e estruturados.',
+        'A area financeira participa de decisoes estrategicas e processos robustos de governanca.'
+    ],
+    ARRAY[
+        'A empresa valoriza profissionais analiticos, organizados e com capacidade de tomada de decisao.',
+        'Ambiente com forte investimento em desenvolvimento profissional.'
+    ]
+),
+(
+    17,
+    'Analista de Recursos Humanos',
+    'Recrutamento, cultura interna, onboarding e gestao de clima organizacional.',
+    'Google Brasil',
+    'São Paulo',
+    'CLT',
+    17000.00,
+    'OPEN',
+    2,
+    'Salario + beneficios premium + oportunidades globais.',
+    'Atuar com RH estrategico e processos de alta complexidade.',
+    ARRAY['Conduzir entrevistas', 'Gerenciar onboarding', 'Criar projetos de clima', 'Apoiar liderancas'],
+    ARRAY['Comunicacao', 'Organizacao', 'People Analytics', 'RH generalista'],
+    'Organizar as informacoes do mundo e tornalas acessiveis.',
+    'Ser referencia global em inovacao e acessibilidade digital.',
+    'Inclusao, diversidade, transparencia e inovacao.',
+    'Av. Brigadeiro Faria Lima, 3900 - São Paulo',
+    ARRAY[
+        'O Google Brasil trabalha com cultura forte, inovacao e equipes multidisciplinares.',
+        'A area de RH tem papel fundamental em apoiar talentos, liderancas e promover diversidade.'
+    ],
+    ARRAY[
+        'A empresa incentiva desenvolvimento continuo e lideranca aberta.',
+        'Profissionais atuam em projetos globais e ambientes altamente colaborativos.'
+    ]
+),
+(
+    18,
+    'Analista de Dados Jr.',
+    'Criacao de relatorios, dashboards, ETL e analise de indicadores para times internos.',
+    'Loft',
+    'São Paulo',
+    'CLT',
+    6200.00,
+    'INTERVIEWING',
+    1,
+    'Salario + VR + VA + bônus anual + auxilio educacional.',
+    'Apoiar áreas internas com insights e dados qualificAdos.',
+    ARRAY['Criar dashboards', 'Analisar dados', 'Automatizar ETLs', 'Gerenciar KPIs'],
+    ARRAY['SQL', 'Python', 'Power BI', 'Raciocinio logico'],
+    'Transformar o mercado imobiliario brasileiro.',
+    'Ser a maior plataforma de imoveis digitais do Brasil.',
+    'Transparencia, eficiencia, responsabilidade e foco no cliente.',
+    'Av. Paulista, 1800 - São Paulo',
+    ARRAY[
+        'A Loft atua com tecnologia e dados para modernizar o mercado imobiliario por meio de plataformas eficientes.',
+        'A area de dados e essencial para tomada de decisao e criacao de solucoes inteligentes.'
+    ],
+    ARRAY[
+        'O ambiente fomenta aprendizado rapido, autonomia e contato direto com tecnologias modernas.',
+        'Profissionais participam da evolucao de produtos digitais com alto impacto social e economico.'
     ]
 );
 
