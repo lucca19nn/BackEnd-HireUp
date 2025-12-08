@@ -572,7 +572,396 @@ INSERT INTO jobs (
         'O ambiente fomenta aprendizado rapido, autonomia e contato direto com tecnologias modernas.',
         'Profissionais participam da evolucao de produtos digitais com alto impacto social e economico.'
     ]
-);
+), 
+(19,
+ 'Data Analyst',
+ 'Responsavel por analisar grandes volumes de dados, criar relatorios e apoiar decisoes estrategicas.',
+ 'DataWise',
+ 'São Paulo',
+ 'CLT',
+ 6800.00,
+ 'OPEN',
+ 1,
+ 'Salario compatível com o mercado, VR, VA, plano de saúde e PLR.',
+ 'Analista para atuar com dados estruturados e não estruturados.',
+ ARRAY['Construir dashboards', 'Analisar grandes bases de dados', 'Criar relatorios gerenciais', 'Apoiar times estratégicos'],
+ ARRAY['SQL avançado', 'Power BI ou Tableau', 'Conhecimento de estatística', 'Boa comunicação'],
+ 'Transformar dados em inteligencia de negocio.',
+ 'Ser lider nacional em soluções baseadas em dados.',
+ 'Transparencia, analise crítica e inovação.',
+ 'Avenida Paulista, 1500 - São Paulo',
+ ARRAY[
+     'A DataWise é especializada em projetos de análise de dados e BI.',
+     'Atuamos com empresas que buscam crescimento baseado em insights.'
+ ],
+ ARRAY[
+     'Cultura orientada a dados e colaboração.',
+     'Valorizamos profissionais analíticos e curiosos.'
+]),
+
+(20,
+ 'Backend Developer Node.js',
+ 'Desenvolvimento de APIs escaláveis em Node.js e integrações diversas.',
+ 'CloudBridge',
+ 'Remoto',
+ 'PJ',
+ 12000.00,
+ 'OPEN',
+ 2,
+ 'Contrato PJ com horário flexível e bônus por entrega.',
+ 'Desenvolvedor para atuar com microsserviços e arquiteturas distribuídas.',
+ ARRAY['Construir APIs robustas', 'Integrar serviços externos', 'Criar testes automatizados', 'Apoiar decisões de arquitetura'],
+ ARRAY['Node.js avançado', 'Docker', 'Bancos SQL e NoSQL', 'GitFlow'],
+ 'Construir soluções backend seguras e escaláveis.',
+ 'Ser referência em integrações cloud.',
+ 'Autonomia, inovação e qualidade.',
+ 'Remoto',
+ ARRAY[
+     'A CloudBridge desenvolve soluções de alta performance para empresas cloud native.',
+     'Time 100% remoto e colaborativo.'
+ ],
+ ARRAY[
+     'Cultura de ownership e entrega.',
+     'Valorizamos desenvolvedores disciplinados e pró-ativos.'
+]),
+
+(21,
+ 'Inside Sales',
+ 'Atuar no atendimento, prospecção e conversão de leads.',
+ 'VendasPro',
+ 'Florianópolis',
+ 'CLT',
+ 3200.00,
+ 'OPEN',
+ 1,
+ 'Salário fixo + comissão agressiva + VR + bônus trimestral.',
+ 'Vendedor interno com foco em metas e follow-up contínuo.',
+ ARRAY['Realizar prospecção ativa', 'Atender leads inbound', 'Registrar atividades no CRM', 'Fechar vendas'],
+ ARRAY['Boa comunicação', 'Experiência com vendas', 'Conhecimento de CRM', 'Persistência'],
+ 'Conectar clientes às melhores soluções de mercado.',
+ 'Ser referência nacional em vendas B2B.',
+ 'Transparência, disciplina e foco em resultados.',
+ 'Rua Rio Branco, 120 - Florianópolis',
+ ARRAY[
+     'A VendasPro atua com soluções B2B e processos comerciais estruturados.',
+     'Equipe orientada a resultados e crescimento contínuo.'
+ ],
+ ARRAY[
+     'Cultura de metas, colaboração e aprendizado.',
+     'Buscamos profissionais motivados e comunicativos.'
+]),
+
+(22,
+ 'Full Stack Developer',
+ 'Atuar no desenvolvimento completo de aplicações web modernas.',
+ 'InfinityCode',
+ 'Remoto',
+ 'PJ',
+ 15000.00,
+ 'OPEN',
+ 2,
+ 'Contrato PJ com liberdade de horários, bônus por performance e trabalho remoto.',
+ 'Profissional para atuar tanto no front-end quanto no back-end da aplicação.',
+ ARRAY['Criar interfaces web', 'Construir APIs', 'Integrar serviços', 'Aplicar boas práticas de código'],
+ ARRAY['React', 'Node.js', 'Arquiteturas modernas', 'DevOps básico'],
+ 'Criar softwares completos e eficientes.',
+ 'Ser referência em desenvolvimento full stack.',
+ 'Qualidade, inovação e flexibilidade.',
+ 'Remoto',
+ ARRAY[
+     'A InfinityCode cria soluções completas para empresas globais.',
+     'Foco em performance, escalabilidade e UX.'
+ ],
+ ARRAY[
+     'Cultura flexível e orientada a resultados.',
+     'Buscamos desenvolvedores que dominem o ciclo completo do produto.'
+]),
+
+(23,
+ 'Analista de RH',
+ 'Responsável por recrutamento, seleção e apoio às rotinas de RH.',
+ 'HumanGroup',
+ 'Recife',
+ 'CLT',
+ 3700.00,
+ 'OPEN',
+ 2,
+ 'Salário com VR, VT, plano de saúde e bônus anual.',
+ 'Profissional para atuar no RH em processos estruturados.',
+ ARRAY['Conduzir entrevistas', 'Realizar triagens', 'Acompanhar onboarding', 'Organizar documentação'],
+ ARRAY['Boa comunicação', 'Experiência em R&S', 'Conhecimento em avaliações comportamentais'],
+ 'Apoiar empresas na construção de equipes fortes.',
+ 'Ser referência em gestão de pessoas.',
+ 'Humanização, ética, desenvolvimento.',
+ 'Avenida Boa Viagem, 400 - Recife',
+ ARRAY[
+     'A HumanGroup atua com gestão de pessoas há mais de 10 anos.',
+     'Foco em desenvolvimento humano e cultura organizacional.'
+ ],
+ ARRAY[
+     'Ambiente colaborativo com foco em pessoas.',
+     'Buscamos profissionais comunicativos e empáticos.'
+]),
+
+(24,
+ 'DevOps Engineer',
+ 'Automatização, pipelines, CI/CD e infraestrutura cloud.',
+ 'SkyDeploy',
+ 'Remoto',
+ 'PJ',
+ 17500.00,
+ 'OPEN',
+ 3,
+ 'Contrato PJ com bônus anual e apoio para certificações.',
+ 'Profissional para atuar em infraestrutura e automação.',
+ ARRAY['Criar pipelines CI/CD', 'Gerenciar clusters Kubernetes', 'Automatizar processos', 'Monitorar aplicações'],
+ ARRAY['Docker', 'Kubernetes', 'AWS ou GCP', 'Infra as Code'],
+ 'Acelerar entregas através de automação.',
+ 'Ser líder em soluções cloud-native.',
+ 'Automação, precisão e confiabilidade.',
+ 'Remoto',
+ ARRAY[
+     'A SkyDeploy atua com infraestrutura moderna e automação.',
+     'Foco em estabilidade, escalabilidade e performance.'
+ ],
+ ARRAY[
+     'Cultura altamente técnica e colaborativa.',
+     'Buscamos engenheiros precisos e metódicos.'
+]),
+
+(25,
+ 'Gerente Comercial',
+ 'Gestão de equipe, metas, expansão e estratégia comercial.',
+ 'ComercialMax',
+ 'São Paulo',
+ 'CLT',
+ 13000.00,
+ 'OPEN',
+ 3,
+ 'Salário competitivo, comissão agressiva, bônus anual e benefícios completos.',
+ 'Gestor experiente para liderar área de vendas.',
+ ARRAY['Gerir equipe', 'Definir metas', 'Treinar vendedores', 'Criar estratégias'],
+ ARRAY['Experiência em liderança', 'Visão estratégica', 'Boa comunicação'],
+ 'Guiar equipes rumo ao crescimento.',
+ 'Ser referência em expansão comercial.',
+ 'Liderança, visão e compromisso.',
+ 'Rua das Acácias, 900 - São Paulo',
+ ARRAY[
+     'A ComercialMax atua no varejo em expansão nacional.',
+     'Times com forte cultura de metas e resultado.'
+ ],
+ ARRAY[
+     'Ambiente acelerado e competitivo.',
+     'Buscamos líderes que inspirem e entreguem resultados.'
+]),
+
+(26,
+ 'QA Analyst',
+ 'Testes manuais e automatizados em aplicações web.',
+ 'QualityHub',
+ 'Curitiba',
+ 'CLT',
+ 5400.00,
+ 'OPEN',
+ 1,
+ 'Salário com VR, VT, plano médico e bônus mensal.',
+ 'Profissional para atuar garantindo qualidade do software.',
+ ARRAY['Criar casos de teste', 'Executar testes', 'Automatizar cenários', 'Gerar relatórios'],
+ ARRAY['Selenium', 'Postman', 'Conhecimento em APIs', 'Metodologias ágeis'],
+ 'Garantir qualidade e confiabilidade dos produtos.',
+ 'Ser referência em qualidade de software.',
+ 'Precisão, organização e excelência.',
+ 'Rua Marechal Deodoro, 300 - Curitiba',
+ ARRAY[
+     'A QualityHub é especializada em QA e testes.',
+     'Times experientes e metodologia ágil.'
+ ],
+ ARRAY[
+     'Cultura organizada e detalhista.',
+     'Valorizamos analistas atentos e proativos.'
+]),
+
+(27,
+ 'Social Media',
+ 'Planejar e executar conteúdo para redes sociais.',
+ 'BuzzStudio',
+ 'Salvador',
+ 'CLT',
+ 3000.00,
+ 'OPEN',
+ 1,
+ 'Salário fixo, bônus, horário flexível e VR.',
+ 'Profissional criativo para atuar com conteúdo e engajamento.',
+ ARRAY['Criar posts', 'Gerenciar calendário', 'Responder seguidores', 'Analisar métricas'],
+ ARRAY['Experiência com redes sociais', 'Boa escrita', 'Conhecimento de métricas'],
+ 'Conectar marcas ao público.',
+ 'Ser referência em conteúdo digital.',
+ 'Criatividade, autenticidade e estratégia.',
+ 'Av. Tancredo Neves, 200 - Salvador',
+ ARRAY[
+     'A BuzzStudio trabalha com conteúdo relevante e de alto impacto.',
+     'Equipe jovem e criativa.'
+ ],
+ ARRAY[
+     'Cultura colaborativa e dinâmica.',
+     'Valorizamos profissionais criativos e estratégicos.'
+]),
+
+(28,
+ 'Arquiteto de Software',
+ 'Responsável por definir arquitetura de alto nível em sistemas complexos.',
+ 'CodeStructure',
+ 'Remoto',
+ 'PJ',
+ 18500.00,
+ 'OPEN',
+ 3,
+ 'Contrato PJ com autonomia técnica total e bônus anual.',
+ 'Profissional para tomar decisões estruturais em produtos críticos.',
+ ARRAY['Definir arquitetura', 'Escolher tecnologias', 'Guiar desenvolvedores', 'Revisar soluções'],
+ ARRAY['Experiência sênior', 'Arquiteturas distribuídas', 'Cloud e microsserviços'],
+ 'Construir sistemas escaláveis e confiáveis.',
+ 'Ser referência em arquitetura moderna.',
+ 'Robustez, técnica e inovação.',
+ 'Remoto',
+ ARRAY[
+     'A CodeStructure atua com engenharia de software avançada.',
+     'Projetos para empresas globais e ambientes críticos.'
+ ],
+ ARRAY[
+     'Cultura técnica, forte e orientada a excelência.',
+     'Buscamos arquitetos experientes e estratégicos.'
+]),
+
+(29,
+ 'Analista de Compras',
+ 'Gestão de compras, negociação e controle de fornecedores.',
+ 'SupplyOne',
+ 'Goiânia',
+ 'CLT',
+ 4800.00,
+ 'OPEN',
+ 2,
+ 'Salário, VR, plano de saúde e bônus trimestral.',
+ 'Profissional para atuar na área de suprimentos.',
+ ARRAY['Negociar preços', 'Controlar pedidos', 'Avaliar fornecedores', 'Estruturar processos'],
+ ARRAY['Boa negociação', 'Excel avançado', 'Organização', 'Experiência com compras'],
+ 'Otimizar custos e garantir bons fornecedores.',
+ 'Expandir redes de parceria eficientes.',
+ 'Responsabilidade, ética e organização.',
+ 'Rua T-63, 350 - Goiânia',
+ ARRAY[
+     'A SupplyOne atua com logística e suprimentos estratégicos.',
+     'Foco em eficiência e processos sólidos.'
+ ],
+ ARRAY[
+     'Ambiente organizado e processual.',
+     'Buscamos analistas analíticos e ágeis.'
+]),
+
+(30,
+ 'Psicólogo Organizacional',
+ 'Atuar em clima organizacional, desenvolvimento e acompanhamento de equipes.',
+ 'MindCare',
+ 'Belo Horizonte',
+ 'CLT',
+ 6200.00,
+ 'OPEN',
+ 1,
+ 'Salário compatível com o mercado, VR, VT e plano de saúde.',
+ 'Profissional para atuar com desenvolvimento humano.',
+ ARRAY['Realizar entrevistas', 'Conduzir programas internos', 'Aplicar questionários', 'Acompanhar lideranças'],
+ ARRAY['Formação em Psicologia', 'Boa escuta', 'Experiência com DHO'],
+ 'Desenvolver pessoas e equipes.',
+ 'Ser referência em desenvolvimento humano.',
+ 'Empatia, crescimento e ética.',
+ 'Av. Cristiano Machado, 700 - Belo Horizonte',
+ ARRAY[
+     'A MindCare atua com desenvolvimento humano nas organizações.',
+     'Times focados em bem-estar emocional e performance.'
+ ],
+ ARRAY[
+     'Cultura humana, acolhedora e estratégica.',
+     'Buscamos profissionais atentos ao comportamento humano.'
+]),
+
+(31,
+ 'Mobile Developer React Native',
+ 'Desenvolvimento de aplicativos mobile com React Native.',
+ 'AppMasters',
+ 'Remoto',
+ 'PJ',
+ 13000.00,
+ 'OPEN',
+ 1,
+ 'Contrato PJ com bônus por entrega e flexibilidade total.',
+ 'Atuar na construção de apps escaláveis.',
+ ARRAY['Criar interfaces mobile', 'Consumir APIs', 'Publicar apps', 'Realizar manutenções'],
+ ARRAY['React Native avançado', 'JavaScript e TypeScript', 'Git'],
+ 'Criar aplicações mobile modernas e performáticas.',
+ 'Ser referência em apps de alta performance.',
+ 'Qualidade, flexibilidade e eficiência.',
+ 'Remoto',
+ ARRAY[
+     'A AppMasters é especializada em apps modernos para clientes diversos.',
+     'Foco em UX e performance.'
+ ],
+ ARRAY[
+     'Cultura flexível e técnica.',
+     'Valorizamos desenvolvedores disciplinados e criativos.'
+]),
+
+(32,
+ 'Auxiliar Administrativo',
+ 'Atuação em rotinas administrativas, atendimento e organização de documentos.',
+ 'OfficePlus',
+ 'Natal',
+ 'CLT',
+ 2100.00,
+ 'OPEN',
+ 2,
+ 'Salário, VT, VR e ambiente colaborativo.',
+ 'Profissional para apoiar rotinas internas.',
+ ARRAY['Atender clientes', 'Organizar documentos', 'Controlar agendas', 'Apoiar processos internos'],
+ ARRAY['Boa comunicação', 'Organização', 'Pacote Office'],
+ 'Apoiar a organização das operações internas.',
+ 'Ser líder regional em serviços administrativos.',
+ 'Responsabilidade, organização e profissionalismo.',
+ 'Rua Mossoró, 100 - Natal',
+ ARRAY[
+     'A OfficePlus é focada em serviços administrativos de qualidade.',
+     'Equipe focada em eficiência e organização.'
+ ],
+ ARRAY[
+     'Ambiente estável e colaborativo.',
+     'Buscamos profissionais organizados e dedicados.'
+]),
+
+(33,
+ 'Coordenador de Projetos',
+ 'Coordenar equipes, prazos, escopo e qualidade em projetos multidisciplinares.',
+ 'PrimeProjects',
+ 'Rio de Janeiro',
+ 'CLT',
+ 9800.00,
+ 'OPEN',
+ 3,
+ 'Salário, bônus por entrega, plano de saúde e VR.',
+ 'Profissional experiente para liderar projetos.',
+ ARRAY['Controlar escopo', 'Gerir equipes', 'Acompanhar entregas', 'Conduzir reuniões'],
+ ARRAY['Gestão de projetos', 'Scrum/Kanban', 'Boa comunicação'],
+ 'Garantir entregas dentro do prazo e qualidade.',
+ 'Ser referência nacional em gestão de projetos.',
+ 'Organização, liderança e clareza.',
+ 'Av. Atlântica, 900 - Rio de Janeiro',
+ ARRAY[
+     'A PrimeProjects atua com gestão de projetos para empresas de grande porte.',
+     'Foco em processos sólidos e lideranças fortes.'
+ ],
+ ARRAY[
+     'Cultura organizada e orientada a metas.',
+     'Buscamos líderes estratégicos e comunicativos.'
+]);
 
 
 INSERT INTO candidates (name, email, phone, linkedin_url, avatar_url, password, status) VALUES
